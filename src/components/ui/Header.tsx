@@ -1,3 +1,5 @@
+//ts-nocheck
+
 import { useLocation } from "preact-iso";
 import { ModeToggle } from "../mode-toggle";
 import { Button } from "./button";

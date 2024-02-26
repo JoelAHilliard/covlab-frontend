@@ -1,4 +1,4 @@
-import { createContext, h } from "preact";
+import { createContext} from "preact";
 import { useEffect, useContext, useState } from "preact/hooks";
 type Theme = "dark" | "light" | "system";
 
