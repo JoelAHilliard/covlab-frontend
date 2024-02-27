@@ -1,7 +1,7 @@
 const API_URL='https://covlab-backend-production.up.railway.app/'
-const dropdown_filters = {"new_tweets_count":"New Tweets Count", "total_tweets_count":"Total Tweets Count","14_day_avg":"14 Day Avg","7_day_avg":"7 Day Avg"};
 const data_cache = {};
-export const getGraphData = async () => {
+
+export const getCasesTweetsGraphData = async () => {
     //daily
     let casesDaily:any = [];
     let tweetDaily:any = [];
@@ -137,4 +137,71 @@ export const getGraphData = async () => {
 
     return returnVal
 
+}
+
+export const getTweetLineData = async () => {
+    let new_tweets_count_dataset = {
+        type:'spline',
+        label: 'New Tweets Count',
+        datasetID:'New Tweets Count',
+        data:[]
+    }
+    
+    let total_tweets_count_dataset = {
+        type:'spline',
+        label: 'Total Tweet Count',
+        datasetID:'weeklyNewCases',
+        data:[]
+    }
+    
+    let tweets_14_average_dataset = {
+        type:'spline',
+        label: 'Bi-Weekly New Cases',
+        datasetID:'biWeeklyNewCases',
+        data:[]
+    }
+    
+    let tweets_7_average_dataset = {
+        type:'spline',
+        label: 'Cumulative New Cases',
+        datasetID:'cumulativeNewCases',
+        data:[]
+    }
+    //daily
+    let new_tweets_count:any = [];
+    //weekly
+    let total_tweets_count:any = [];
+    let tweets_14_average:any =[];
+    //bi-weekly
+    let tweets_7_average:any = [];
+    //Cumulative
+
+    let data = await fetch('https://covlab-backend-production.up.railway.app/graphData1');
+
+    let response = await data.json();
+    
+    for(var i =0;i<response.length-1;i++){
+        //daily
+        new_tweets_count.push([response[i].date,response[i].new_tweets_count])
+        total_tweets_count.push([response[i].date,response[i].total_tweets_count])
+        //weekly
+        tweets_14_average.push([response[i].date,response[i].tweets_14_average])
+        //biweeklu
+        tweets_7_average.push([response[i].date,response[i].tweets_7_average])
+    }
+
+    new_tweets_count_dataset.data = new_tweets_count;
+    total_tweets_count_dataset.data = total_tweets_count;
+    tweets_14_average_dataset.data = tweets_14_average;
+    tweets_7_average_dataset.data = tweets_7_average;
+
+
+    let returnVal = {
+        "new_tweets_count": [new_tweets_count_dataset], 
+        "total_tweets_count": [total_tweets_count_dataset],
+        "14_day_avg":[tweets_14_average_dataset],
+        "7_day_avg":[tweets_7_average_dataset]
+    };
+
+    return returnVal;
 }
