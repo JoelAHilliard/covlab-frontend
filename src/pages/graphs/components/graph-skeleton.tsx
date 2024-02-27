@@ -3,7 +3,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Home() {
     return (
-        <div class="px-2 mb-2">
+        <div class="mb-2 max-w-screen-xl mx-auto w-full">
                     <Card>
                         <CardHeader className="flex flex-row justify-between">
                             <div class="flex items-center justify-center flex-col">

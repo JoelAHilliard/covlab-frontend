@@ -36,7 +36,6 @@ export default function Home() {
             </div>
             <div class="bg-gradient-to-r from-primary/50 to-background py-4 px-1">
                 <div name="previews" class="flex flex-col max-w-screen-xl max-w-container mx-auto gap-2 justify-start">
-
                     <Card name="graph1">
                         <CardHeader>
                             <CardTitle className='pl-1'>Preview</CardTitle>

@@ -13,12 +13,11 @@ export default function Home() {
     const { theme } = useTheme();
     const [menu, setMenu] = useState(false);
     const logo = theme === "dark" ? covlabLogo : covlabLogoBlack;
-    console.log(url)
     const nav = (
-        <header className="bg-background flex max-w-screen-xl mx-auto w-full flex items-center justify-between gap-2 px-2 relative">
-            <nav className="w-full flex items-center gap-2 justify-between py-2">
+        <header className="bg-[#020202] flex  flex items-center justify-between gap-2 px-2 relative">
+            <nav className="max-w-screen-xl mx-auto w-full w-full flex items-center gap-2 justify-between py-2">
                 <a href="/">
-                    <Button variant="outline" size="default" className={url === '/' ? 'bg-primary hover:bg-primary flex h-10 px-1 text-white hover:text-white' : 'bg-background flex h-10 px-1'}>
+                    <Button variant="ghost" size="default" className={url === '/' ? 'bg-primary hover:bg-primary flex h-10 px-1 text-white hover:text-white' : 'bg-background flex h-10 px-1 hover:bg-primary/25'}>
                         <img className="h-[50px] w-[100px]" src={logo} alt="logo" />
                     </Button>
                 </a>
@@ -42,17 +41,17 @@ export default function Home() {
                 {/* Regular menu for larger screens */}
                 <div className="hidden md:flex gap-2">
                     <Link href="/graphs">
-                        <Button variant="outline" size="lg" className={url === '/graphs' ? 'bg-primary hover:bg-primary text-white hover:text-white' : 'bg-background'}>
+                        <Button variant="ghost" size="lg" className={url === '/graphs' ? 'bg-primary hover:bg-primary text-white hover:text-white' : 'bg-background hover:bg-primary/25'}>
                             Graphs
                         </Button>
                     </Link>
                     <Link href="/related-words">
-                        <Button variant="outline" size="lg" className={url === '/related-words' ? 'bg-primary hover:bg-primary text-white hover:text-white' : 'bg-background'}>
+                        <Button variant="ghost" size="lg" className={url === '/related-words' ? 'bg-primary hover:bg-primary text-white hover:text-white' : 'bg-background hover:bg-primary/25'}>
                             Related Words
                         </Button>
                     </Link>
                     <Link href="/map">
-                        <Button variant="outline" size="lg" className={url === '/map' ? 'bg-primary hover:bg-primary text-white hover:text-white' : 'bg-background'}>
+                        <Button variant="ghost" size="lg" className={url === '/map' ? 'bg-primary hover:bg-primary  text-white hover:text-white' : 'bg-background hover:bg-primary/25'}>
                             Map
                         </Button>
                     </Link>

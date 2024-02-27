@@ -20,6 +20,8 @@ export default function Home(props) {
     const initialSeries = createSeries(graph_data, minValue, maxValue);
     const [series, setSeries] = useState(initialSeries);
 
+    const [minCaption, setMinCaption] = useState(xVals[0]);
+    const [maxCaption, setMaxCaption] = useState(xVals[xVals.length - 1]);
     useEffect(() => {
         // Function to handle window resize events
         function handleResize() {
@@ -153,21 +155,32 @@ export default function Home(props) {
         setMaxValue(e.maxValue);
     };
 
+    const handleCaption = (e) => {
+        setMinCaption(xVals[e.minValue]);
+        setMaxCaption(xVals[e.maxValue]);
+    };
+
     return (
         <div>
             <HighchartsReact
                 highcharts={Highcharts}
                 options={options}
             />
-            <div class="px-6 mb-4">
+            <div class="px-10 mb-4 mt-3">
                 <MultiRangeSlider
                     min={0}
                     max={xVals.length - 1}
                     minValue={minValue}
                     maxValue={maxValue}
                     onChange={handleInput}
+                    onInput={handleCaption}
+                    minCaption={minCaption}
+                    maxCaption={maxCaption}
                     ruler={false}
                     barInnerColor="red"
+                    thumbLeftColor="red"
+                    thumbRightColor="red"
+                    label=""
                     style={{ border: "none", boxShadow: "none", padding: "15px 10px" }}
                 />
             </div>
