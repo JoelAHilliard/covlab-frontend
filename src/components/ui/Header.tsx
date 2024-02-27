@@ -11,7 +11,7 @@ import { useTheme } from "../theme-provider";
 export default function Home(){
     
     const { url } = useLocation();
-    const { theme } = useTheme(); 
+    const { theme } = useTheme();
 
     const logo = theme === "dark" ? covlabLogo : covlabLogoBlack;
 
@@ -19,28 +19,28 @@ export default function Home(){
         <nav class="flex items-center gap-2 justify-center py-2 ">
                 <>
                     <a href="/">
-                        <Button variant="outline" size="default" className={url == '/' ? 'bg-primary hover:bg-primary flex h-10 px-1' : "bg-background flex h-10 px-1"}>
+                        <Button variant="outline" size="default" className={url == '/' ? 'bg-primary hover:bg-primary flex h-10 px-1 text-white hover:text-white' : "bg-background flex h-10 px-1"}>
                             <img class="h-[50px] w-[100px]" src={logo} />
                         </Button>
                     </a>
                     <a href="/graphs">
-                        <Button variant="outline" size="lg" className={url == '/graphs' ? 'bg-primary hover:bg-primary' : "bg-background "}>
+                        <Button variant="outline" size="lg" className={url == '/graphs' ? 'bg-primary hover:bg-primary text-white hover:text-white' : "bg-background "}>
                             Graphs
                         </Button>
                     </a>
                     <a href="/related-words">
-                        <Button variant="outline" size="lg" className={url == '/related-words' ? 'bg-primary hover:bg-primary' : "bg-background "}>
+                        <Button variant="outline" size="lg" className={url == '/related-words' ? 'bg-primary hover:bg-primary text-white hover:text-white' : "bg-background "}>
                             Related Words
                         </Button>
                     </a>
                     <a href="/map">
-                        <Button variant="outline" size="lg" className={url == '/map' ? 'bg-primary hover:bg-primary' : "bg-background "}>
+                        <Button variant="outline" size="lg" className={url == '/map' ? 'bg-primary hover:bg-primary text-white hover:text-white' : "bg-background "}>
                             Map
                         </Button>
                     </a>
                 </>
         </nav>
-        <ModeToggle />
+        {/* <ModeToggle /> */}
 
     </header>
 

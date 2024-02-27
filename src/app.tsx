@@ -9,6 +9,7 @@ import { ThemeProvider } from './components/theme-provider';
 import RelatedWords from './pages/related-words';
 
 export function App() {
+  
   return (
    <div>
     {/* nav bar */}
