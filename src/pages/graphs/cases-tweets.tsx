@@ -34,7 +34,7 @@ export default function Home() {
   const currentGraphData = graphData ? graphData[activeCasesTweetsFilter] : null;
 
   return (
-    currentGraphData ? (
+    !currentGraphData ? (
       <div class="max-w-screen-xl mx-auto w-full px-2">
         <Card graph-id="cases/tweets" className="bg-accent mb-2">
           <CardHeader className="flex justify-between">
