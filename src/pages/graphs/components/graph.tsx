@@ -1,3 +1,5 @@
+
+
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { useEffect, useState } from "preact/hooks";
@@ -6,36 +8,37 @@ import MultiRangeSlider from "multi-range-slider-react";
 export default function Home(props) {
     const graph_data = props.data;
     const [width, setWidth] = useState(window.innerWidth);
-    const initialSeries = createSeries(graph_data, 0, graph_data[0].data.length - 1);
-    const [series, setSeries] = useState(initialSeries);
 
-   
-
+    // Initialize xVals here to use in setting initial max value of slider
     const xVals = setDateData(new Date(graph_data[0].data[0][0]), new Date(graph_data[0].data[graph_data[0].data.length - 1][0]));
 
-    const [minValue, set_minValue] = useState(0);
-    const [maxValue, set_maxValue] = useState(xVals.length-1);
+    // Initialize minValue and maxValue for the slider
+    const [minValue, setMinValue] = useState(0);
+    const [maxValue, setMaxValue] = useState(xVals.length - 1);
+
+    // Generate initial series based on full data range
+    const initialSeries = createSeries(graph_data, minValue, maxValue);
+    const [series, setSeries] = useState(initialSeries);
+
     useEffect(() => {
+        // Function to handle window resize events
         function handleResize() {
             setWidth(window.innerWidth);
         }
 
         window.addEventListener('resize', handleResize);
 
+        // Cleanup function to remove event listener
         return () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
 
-    const handleInput = (e) => {
-        set_minValue(e.minValue);
-        set_maxValue(e.maxValue);
-        const startSlice = e.minValue
-        const endSlice = e.maxValue;
-        const updatedSeries = createSeries(graph_data, startSlice, endSlice);
+    useEffect(() => {
+        // Update the series data based on current slider values
+        const updatedSeries = createSeries(graph_data, minValue, maxValue);
         setSeries(updatedSeries);
-
-    };
+    }, [minValue, maxValue, graph_data]);
 
     function setDateData(startDate, endDate) {
         var days = [];
@@ -46,8 +49,6 @@ export default function Home(props) {
         return days;
     }
 
-
-    
     function createSeries(data, startSlice, endSlice) {
         return data.map((dataset, index) => {
             let yVals = dataset.data.slice(startSlice, endSlice + 1).map((item) => {
@@ -67,7 +68,6 @@ export default function Home(props) {
             };
         });
     }
-
 
     const options = {
         series: series,
@@ -147,7 +147,12 @@ export default function Home(props) {
             }
         },
     };
-    console.log("rendered")
+
+    const handleInput = (e) => {
+        setMinValue(e.minValue);
+        setMaxValue(e.maxValue);
+    };
+
     return (
         <div>
             <HighchartsReact
@@ -157,19 +162,15 @@ export default function Home(props) {
             <div class="px-6 mb-4">
                 <MultiRangeSlider
                     min={0}
-                    max={xVals.length}
-                    step={5}
+                    max={xVals.length - 1}
                     minValue={minValue}
                     maxValue={maxValue}
-                    onChange={(e) => {
-                        handleInput(e);
-                    }}
+                    onChange={handleInput}
                     ruler={false}
                     barInnerColor="red"
                     style={{ border: "none", boxShadow: "none", padding: "15px 10px" }}
                 />
             </div>
-            
         </div>
-    )
+    );
 }

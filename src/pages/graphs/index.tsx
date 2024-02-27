@@ -8,7 +8,7 @@ export default function Home() {
         return(
             <div>
                 <CTLine />
-                <TweetLine />
+                {/* <TweetLine /> */}
             </div>
         )
 }

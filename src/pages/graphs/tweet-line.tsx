@@ -22,7 +22,6 @@ export default function Home() {
         async function fetchData() {
             try {
               const data = await getTweetLineData();
-              console.log(data)
               setGraphData(data);
               setActiveGraphData(data[activeFilter]);
               // Use the data to set state or do other actions
@@ -36,7 +35,6 @@ export default function Home() {
       useEffect(()=>{
         if(graphData) {
             let temp = graphData[activeFilter];
-            console.log(temp,graphData,activeFilter)
             setActiveGraphData(temp)
         };
         },[activeFilter])
