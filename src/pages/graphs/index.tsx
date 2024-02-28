@@ -11,7 +11,7 @@ export default function Home() {
             
         return(
 
-            <div class="mt-2">
+            <div class="p-2">
                 <CTLine />
                 <TweetLine />
                 <Rehabilitation />

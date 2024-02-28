@@ -1,7 +1,9 @@
 const API_URL='https://covlab-backend-production.up.railway.app/'
-const data_cache = {};
+const data_cache:any = {};
 
 export const getCasesTweetsGraphData = async () => {
+
+    if(data_cache["casesTweets"]) return data_cache["casesTweets"]
     //daily
     let casesDaily:any = [];
     let tweetDaily:any = [];
@@ -135,11 +137,16 @@ export const getCasesTweetsGraphData = async () => {
         "7_day_avg":[weeklyNewCasesDataset,weeklyNewTweetsDataset]
     };
 
+    data_cache["casesTweets"] = returnVal;
+
     return returnVal
 
 }
 
 export const getTweetLineData = async () => {
+    
+    if(data_cache["tweetLine"]) return data_cache["tweetLine"]
+
     let new_tweets_count_dataset = {
         type:'spline',
         label: 'New Tweets Count',
@@ -202,6 +209,8 @@ export const getTweetLineData = async () => {
         "14_day_avg":[tweets_14_average_dataset],
         "7_day_avg":[tweets_7_average_dataset]
     };
+
+    data_cache["tweetLine"] = returnVal
 
     return returnVal;
 }
