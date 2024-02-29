@@ -6,10 +6,61 @@ import singleLineGraph from "../../assets/images/line-graph.jpg";
 import pieGraph from "../../assets/images/pieChart.jpg";
 import usMap from "../../assets/images/usMap.jpg";
 import symptomsimg from "../../assets/images/symptoms.png";
-
+import { getLatestData } from "@/service";
 import stateTrendsImg from "../../assets/images/statetrends.png";
+import { useEffect, useState } from "preact/hooks";
+function transform(number:number){
+    if (isNaN(number)) return null; // will only work value is a number
+    if (number === null) return null;
+    if (number === 0) return null;
+    let abs = Math.abs(number);
+    const rounder = Math.pow(10, 1);
+    const isNegative = number < 0; // will also work for Negetive numbers
+    let key = '';
 
+    const powers = [
+        {key: 'Q', value: Math.pow(10, 15)},
+        {key: 'T', value: Math.pow(10, 12)},
+        {key: 'B', value: Math.pow(10, 9)},
+        {key: 'M', value: Math.pow(10, 6)},
+        {key: 'K', value: 1000}
+    ];
+
+    for (let i = 0; i < powers.length; i++) {
+        let reduced = abs / powers[i].value;
+        reduced = Math.round(reduced * rounder) / rounder;
+        if (reduced >= 1) {
+            abs = reduced;
+            key = powers[i].key;
+            break;
+        }
+    }
+    return (isNegative ? '-' : '') + abs + key;
+}
 export default function Home() {
+    const [data,setData] = useState<any>(null);
+    const [loading,setloading] = useState(false);
+    useEffect(()=>{
+        const fetchData = async () => {
+            setloading(true)
+            setData(null);
+    
+            const relatedWordsURL = "https://labelling.covlab.tech/statistics"
+    
+            const body = new URLSearchParams();
+    
+            const response = await fetch(relatedWordsURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: body.toString(),
+              });
+            const data = await response.json();
+            setData(data);
+            setloading(false)
+    
+        }
+          fetchData();
+    },[])
     return(
         <div>
             <div class="backgroundCss min-h-screen">
@@ -17,20 +68,22 @@ export default function Home() {
                     <div class="titleContainer">
                         <p class="Covlab" style="padding-top: 15px;">Covlab</p>
                         <p class="hook">Uncover the connection: Explore COVID-19 cases through tweets.</p>
-                        <div>
-                            <div style="display: flex; flex-flow: row; width: 100%; justify-content: center; gap: 15px;">
-                                <div >
-                                    <p class="dataTitle">Total Tweets</p>
-                                    <h4 >total</h4>
-                                </div >
-                                <div>
-                                    <p class="dataTitle" >Model Positive Tweets</p>
-                                    <h4 >total</h4>
+                        {data &&
+                            <div>
+                                <div style="display: flex; flex-flow: row; width: 100%; justify-content: center; gap: 15px;">
+                                    <div >
+                                        <p class="dataTitle">Total Tweets</p>
+                                        <h4 >{transform(data["total_related_tweets_count"])}</h4>
+                                    </div >
+                                    <div>
+                                        <p class="dataTitle" >Model Positive Tweets</p>
+                                        <h4 >{transform(data["model_positive_count"])}</h4>
+                                    </div>
+                                
                                 </div>
-                            
+                                <p class="lastUpdated">Last updated: Lorem ipsum</p>
                             </div>
-                            <p class="lastUpdated">Last updated: Lorem ipsum</p>
-                        </div>
+                        }
                     </div>
                     </div>
             </div>
@@ -84,7 +137,5 @@ export default function Home() {
                 </div>
             </div>
         </div>
-
-       
     )
 }

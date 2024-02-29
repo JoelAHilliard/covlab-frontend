@@ -13,7 +13,7 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table"
-  
+
 export default function Home() {
     const [keyword,setKeyword] = useState("");
 
@@ -35,7 +35,6 @@ export default function Home() {
 
         const relatedWordsURL = "https://labelling.covlab.tech/word"
 
-
         const body = new URLSearchParams();
 
         body.set('word', keyword)
@@ -44,7 +43,8 @@ export default function Home() {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: body.toString(),
-          });
+        });
+
         const data = await response.json();
 
         setData(data);
@@ -69,7 +69,7 @@ export default function Home() {
                             value={keyword}
                             onChange={(e) => setKeyword(e.target.value)}
                         />
-                        <Button className={`ml-2 `} disabled={loading} onClick={fetchData}>Submit</Button>
+                        <Button className={`ml-2`} disabled={loading || keyword === ""} onClick={fetchData}>Submit</Button>
                     </div>
                     {loading && <Skeleton className="mt-3 h-[300px] w-full"></Skeleton>}
                     

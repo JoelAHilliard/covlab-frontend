@@ -144,7 +144,7 @@ export const getCasesTweetsGraphData = async () => {
 }
 
 export const getTweetLineData = async () => {
-    
+
     if(data_cache["tweetLine"]) return data_cache["tweetLine"]
 
     let new_tweets_count_dataset = {
@@ -213,4 +213,18 @@ export const getTweetLineData = async () => {
     data_cache["tweetLine"] = returnVal
 
     return returnVal;
+}
+export async function getLatestData() {
+    const latestDataPromise = await fetch('https://covlab-backend-production.up.railway.app/latest');
+    const statisticsPromise = await fetch('https://labelling.covlab.tech/statistics', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      
+    const latestDataResponse = await latestDataPromise.json();
+    const statisticsResponse = await statisticsPromise.json();
+
+    return [latestDataResponse,statisticsResponse];
 }
