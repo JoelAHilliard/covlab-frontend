@@ -1,3 +1,5 @@
+//ts-nocheck
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input"
@@ -7,7 +9,6 @@ import { useEffect, useState } from "preact/hooks";
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
     TableHead,
     TableHeader,
@@ -67,7 +68,7 @@ export default function Home() {
                             className="px-8" 
                             placeholder="Search..." 
                             value={keyword}
-                            onChange={(e) => setKeyword(e.target.value)}
+                            onChange={(e:any) => setKeyword(e.target.value)}
                         />
                         <Button className={`ml-2`} disabled={loading || keyword === ""} onClick={fetchData}>Submit</Button>
                     </div>

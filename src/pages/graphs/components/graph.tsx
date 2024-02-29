@@ -5,7 +5,7 @@ import HighchartsReact from "highcharts-react-official";
 import { useEffect, useState } from "preact/hooks";
 import MultiRangeSlider from "multi-range-slider-react";
 
-export default function Home(props) {
+export default function Home(props:any) {
     const graph_data = props.data;
     const [width, setWidth] = useState(window.innerWidth);
 
@@ -42,7 +42,7 @@ export default function Home(props) {
         setSeries(updatedSeries);
     }, [minValue, maxValue, graph_data]);
 
-    function setDateData(startDate, endDate) {
+    function setDateData(startDate:any, endDate:any) {
         var days = [];
         let tempStartDate = new Date(startDate);
         for (let d = new Date(tempStartDate); d <= endDate; d.setDate(d.getDate() + 1)) {
@@ -51,9 +51,9 @@ export default function Home(props) {
         return days;
     }
 
-    function createSeries(data, startSlice, endSlice) {
-        return data.map((dataset, index) => {
-            let yVals = dataset.data.slice(startSlice, endSlice + 1).map((item) => {
+    function createSeries(data:any, startSlice:number, endSlice:number) {
+        return data.map((dataset:any, index:number) => {
+            let yVals = dataset.data.slice(startSlice, endSlice + 1).map((item:any) => {
                 return item[1] < 0 ? 0 : item[1];
             });
 
@@ -150,12 +150,12 @@ export default function Home(props) {
         },
     };
 
-    const handleInput = (e) => {
+    const handleInput = (e:any) => {
         setMinValue(e.minValue);
         setMaxValue(e.maxValue);
     };
 
-    const handleCaption = (e) => {
+    const handleCaption = (e:any) => {
         setMinCaption(xVals[e.minValue]);
         setMaxCaption(xVals[e.maxValue]);
     };

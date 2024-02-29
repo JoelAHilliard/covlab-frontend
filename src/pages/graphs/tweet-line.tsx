@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
     Select,
     SelectContent,
@@ -13,7 +13,7 @@ import GraphSkeleton from "./components/graph-skeleton"
 
 export default function Home() {
     const [activeFilter,setActiveFilter] = useState("new_tweets_count")
-    const tweetline_dropdown_filters = {"new_tweets_count":"New Tweets Count", "total_tweets_count":"Total Tweets Count","14_day_avg":"14 Day Avg","7_day_avg":"7 Day Avg"};
+    const tweetline_dropdown_filters :any = {"new_tweets_count":"New Tweets Count", "total_tweets_count":"Total Tweets Count","14_day_avg":"14 Day Avg","7_day_avg":"7 Day Avg"};
     
     const [graphData,setGraphData] = useState(null);
     const [activeGraphData,setActiveGraphData] = useState(null);

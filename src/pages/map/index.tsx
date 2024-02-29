@@ -61,9 +61,18 @@ export default function Home() {
             key: "fill"
           }])[0];
           
-          polygonSeries.mapPolygons.template.events.on("pointerover", function (ev: { target: { dataItem: { get: (arg0: string) => any; }; }; }) {      
-            heatLegend.showValue(ev.target.dataItem.get("value"));
+          polygonSeries.mapPolygons.template.events.on("pointerover", function(ev) {
+            // Check if the target and dataItem are defined to satisfy type safety
+            if (ev.target && ev.target.dataItem && ev.target.dataItem.dataContext) {
+              // Assuming 'value' is a property in your dataContext and your dataContext is typed appropriately
+              const value = (ev.target.dataItem?.dataContext as any)['value'];
+
+              if (value !== undefined) {
+                heatLegend.showValue(value);
+              }
+            }
           });
+          
 
           let data = mapData;
 
