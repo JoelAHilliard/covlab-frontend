@@ -42,8 +42,8 @@ export default function Home() {
         return(
             <div class="max-w-screen-xl max-w-container mx-auto w-full">
                 <Card graph-id="cases/tweets" className="bg-accent">
-                    <CardHeader className="flex flex-row justify-between">
-                        <div class="flex items-center justify-center flex-col">
+                    <CardHeader className="flex flex-col justify-start">
+                        <div class="flex items-start justify-center flex-col">
                             <CardTitle className="pl-1">Overview of the Collected Raw Tweets</CardTitle>
                             {/* <CardDescription className="text-left">Graph 1</CardDescription> */}
                         </div>
