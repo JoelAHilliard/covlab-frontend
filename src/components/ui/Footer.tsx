@@ -9,13 +9,13 @@ export default function Home() {
               <a href="/team"><span>Team</span></a>
               <span>About Us</span>
               <span>Contact</span>
-              <span>To be annotators</span>
+              <a href="https://forms.gle/2TQaY7tWAi72Mjs78" target="_blank"><span>To be annotators</span></a>
               <span>Privacy Policy</span>
             </div>
             
             <div class="flex flex-col gap-2">
               <span class="text-left text-lg font-bold">Related Links</span>
-              <a target="_blank" href="ttps://digbio.missouri.ehdu/"><span>Mizzou DBL</span></a>
+              <a target="_blank" href="https://digbio.missouri.ehdu/"><span>Mizzou DBL</span></a>
               <a target="_blank" href="https://coronavirus.jhu.edu/map.html"><span>Johns Hopkins Global Cases</span></a>
             </div>
             

@@ -9,7 +9,7 @@ export default function Home() {
                     <CardTitle>Team</CardTitle>
                 </CardHeader>
                 <CardContent>
-                        <div class="grid grid-cols-3 gap-4 w-full">
+                        <div class="gridgrid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                             <div class="shadow-lg rounded-lg py-4">
                                 <h2 class="text-xl font-bold mb-2">Supervisor</h2>
                                 <ul>
@@ -43,7 +43,7 @@ export default function Home() {
                                 </ul>
                             </div>
 
-                            <div class=" shadow-lg rounded-lg p-4">
+                            <div class=" shadow-lg rounded-lg py-4">
                                 <h2 class="text-xl font-bold mb-2">Annotators</h2>
                                 <ul>
                                     <li>Kent Studer</li>
