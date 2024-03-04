@@ -13,7 +13,7 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-  } from "@/components/ui/table"
+} from "@/components/ui/table"
 
 export default function Home() {
     const [keyword,setKeyword] = useState("");
@@ -86,7 +86,6 @@ export default function Home() {
                             <TableBody>
 
                                 {data.map((word:any,index:any) => {
-                                    console.log(word)
                                     return (
                                         <TableRow>
                                             <TableCell>{index}</TableCell>

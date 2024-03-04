@@ -228,3 +228,31 @@ export async function getLatestData() {
 
     return [latestDataResponse,statisticsResponse];
 }
+
+export async function getTableData() {
+    
+    if(data_cache["table"]) return data_cache["table"]
+    
+    let tableData = await fetch("https://covlab-backend-production.up.railway.app/tableData");
+    
+    let data = await tableData.json();
+    
+    data_cache["table"] = data;
+
+    return data;
+}
+export const fetchPieChartData = async () => {
+    try {
+        if( data_cache["pieChart"]) return  data_cache["pieChart"]
+        
+        const data = await fetch("https://labelling.covlab.tech/statistics",{method:'post'});
+        const json_data = await data.json();
+        
+        data_cache["pieChart"] = json_data;
+
+        return json_data;
+    
+    } catch (error) {
+      console.error("Error fetching graph data:", error);
+    }
+  };

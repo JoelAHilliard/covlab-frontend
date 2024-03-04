@@ -7,7 +7,7 @@ import Header from "../src/components/ui/Header";
 import Footer from "../src/components/ui/Footer";
 import { ThemeProvider } from './components/theme-provider';
 import RelatedWords from './pages/related-words';
-
+import Team from "./pages/team"
 export function App() {
   
   return (
@@ -23,6 +23,7 @@ export function App() {
 								<Route path="/graphs" component={Graphs} />
 								<Route path="/map" component={Map} />
 								<Route path="/related-words" component={RelatedWords} />
+								<Route path="/team" component={Team} />
 							</Router>
               <Footer />
 						</div>

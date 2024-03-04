@@ -6,7 +6,7 @@ export default function Home() {
           <div className="grid grid-cols-3 gap-4">
             <div class="flex flex-col gap-2">
               <span class="text-left text-lg font-bold">Covlab</span>
-              <span>Team</span>
+              <a href="/team"><span>Team</span></a>
               <span>About Us</span>
               <span>Contact</span>
               <span>To be annotators</span>
@@ -15,7 +15,7 @@ export default function Home() {
             
             <div class="flex flex-col gap-2">
               <span class="text-left text-lg font-bold">Related Links</span>
-              <a target="_blank" href="https://digbio.missouri.edu/"><span>Mizzou DBL</span></a>
+              <a target="_blank" href="ttps://digbio.missouri.ehdu/"><span>Mizzou DBL</span></a>
               <a target="_blank" href="https://coronavirus.jhu.edu/map.html"><span>Johns Hopkins Global Cases</span></a>
             </div>
             

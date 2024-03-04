@@ -160,6 +160,10 @@ export default function Home(props:any) {
         setMaxCaption(xVals[e.maxValue]);
     };
 
+    const handleBoth = (e:any) =>{
+        handleCaption(e);
+        handleInput(e);
+    }
     return (
         <div>
             <HighchartsReact
@@ -172,8 +176,8 @@ export default function Home(props:any) {
                     max={xVals.length - 1}
                     minValue={minValue}
                     maxValue={maxValue}
-                    onChange={handleInput}
-                    onInput={handleCaption}
+                    // onChange={handleInput}
+                    onInput={handleBoth}
                     minCaption={minCaption}
                     maxCaption={maxCaption}
                     ruler={false}
