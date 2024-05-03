@@ -38,7 +38,7 @@ export default function Home() {
       <div class="max-w-screen-xl mx-auto w-full">
         <Card graph-id="cases/tweets" className="bg-accent mb-2">
           <CardHeader className="flex justify-between">
-            <CardTitle>Overview of the Collected Raw Tweets</CardTitle>
+            <CardTitle>Real Cases and Predicted Cases</CardTitle>
             <Select onValueChange={setActiveCasesTweetsFilter}>
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Select Filter" />

@@ -16,8 +16,8 @@ export default function Home() {
         return(
 
             <div class="p-2">
-                <CTLine />
                 <TweetLine />
+                <CTLine />
                 <TB />
                 <Pie />
                 <WC />

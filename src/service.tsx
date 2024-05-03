@@ -1,4 +1,5 @@
-const API_URL='https://covlab-backend-production.up.railway.app/'
+const API_URL='https://covlab-express-backend-production.up.railway.app/'
+// const API_URL='http://localhost:3000/'
 const data_cache:any = {};
 
 export const getCasesTweetsGraphData = async () => {
@@ -183,7 +184,7 @@ export const getTweetLineData = async () => {
     let tweets_7_average:any = [];
     //Cumulative
 
-    let data = await fetch('https://covlab-backend-production.up.railway.app/graphData1');
+    let data = await fetch(API_URL + 'graphData1');
 
     let response = await data.json();
     
@@ -215,7 +216,7 @@ export const getTweetLineData = async () => {
     return returnVal;
 }
 export async function getLatestData() {
-    const latestDataPromise = await fetch('https://covlab-backend-production.up.railway.app/latest');
+    const latestDataPromise = await fetch(API_URL + 'latest');
     const statisticsPromise = await fetch('https://labelling.covlab.tech/statistics', {
         method: 'POST',
         headers: {
@@ -233,7 +234,7 @@ export async function getTableData() {
     
     if(data_cache["table"]) return data_cache["table"]
     
-    let tableData = await fetch("https://covlab-backend-production.up.railway.app/tableData");
+    let tableData = await fetch(API_URL + "tableData");
     
     let data = await tableData.json();
     
@@ -255,4 +256,4 @@ export const fetchPieChartData = async () => {
     } catch (error) {
       console.error("Error fetching graph data:", error);
     }
-  };
+};

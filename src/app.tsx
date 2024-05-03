@@ -7,7 +7,10 @@ import Header from "../src/components/ui/Header";
 import Footer from "../src/components/ui/Footer";
 import { ThemeProvider } from './components/theme-provider';
 import RelatedWords from './pages/related-words';
-import Team from "./pages/team"
+import Team from "./pages/team";
+
+
+
 export function App() {
   
   return (
