@@ -54,7 +54,7 @@ export default function Home() {
     }
 
     return(
-        <div class="p-2 max-w-screen-xl mx-auto w-full">
+        <div class="p-2 max-w-screen-2xl mx-auto w-full">
             <Card className="px-12">
                 <CardHeader>
                     <CardTitle className="pl-1">Please input a keyword to find related words</CardTitle>

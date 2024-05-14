@@ -1,8 +1,8 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import Img from "../../../assets/images/rehabilitation.png"
+import Img from "../../../assets/images/rehabilitation.jpg"
 export default function Home() {
     return(
-        <div class="max-w-screen-xl mx-auto w-full">
+        <div class="max-w-screen-2xl mx-auto w-full">
         <Card graph-id="cases/tweets" className="bg-accent mb-2">
           <CardHeader className="flex justify-between">
             <CardTitle className="text-center">Rehabilitation time</CardTitle>

@@ -35,7 +35,7 @@ export default function Home() {
 
   return (
     currentGraphData ? (
-      <div class="max-w-screen-xl mx-auto w-full">
+      <div class="max-w-screen-2xl mx-auto w-full">
         <Card graph-id="cases/tweets" className="bg-accent mb-2">
           <CardHeader className="flex justify-between">
             <CardTitle>Real Cases and Predicted Cases</CardTitle>

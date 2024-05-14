@@ -82,7 +82,7 @@ export default function Home() {
 
      return (
         graphData ? 
-            <div class="max-w-screen-xl mx-auto w-full">
+            <div class="max-w-screen-2xl mx-auto w-full">
                 <Card className="bg-accent mt-2 mb-2">
                     <CardHeader>
                         <CardTitle>Total Tweet Data</CardTitle>

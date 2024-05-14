@@ -2,6 +2,7 @@ import Logo from "../../assets/images/mizzouLogoNoBg.png";
 
 export default function Home() {
     return (
+      <div class="w-full bg-accent">
         <div className="p-4 max-w-screen-xl max-w-container mx-auto">
           <div className="grid grid-cols-3 gap-4">
             <div class="flex flex-col gap-2">
@@ -15,7 +16,7 @@ export default function Home() {
             
             <div class="flex flex-col gap-2">
               <span class="text-left text-lg font-bold">Related Links</span>
-              <a target="_blank" href="https://digbio.missouri.ehdu/"><span>Mizzou DBL</span></a>
+              <a target="_blank" href="https://digbio.missouri.edu/"><span>Mizzou DBL</span></a>
               <a target="_blank" href="https://coronavirus.jhu.edu/map.html"><span>Johns Hopkins Global Cases</span></a>
             </div>
             
@@ -24,6 +25,7 @@ export default function Home() {
             </div>
           </div>
           <h5 className="text-center text-grey mt-4">Copyright © 2023 by Digital Biology Lab. All rights reserved.</h5>
+        </div>
         </div>
       )
       

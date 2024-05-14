@@ -18,17 +18,18 @@ export function App() {
     {/* nav bar */}
     <LocationProvider >
       <ThemeProvider>
-						<div class="bg-background min-h-screen flex flex-col h-full ">
-
+						<div class="bg-background min-h-screen flex flex-col h-full">
               <Header />
-							<Router>
-								<Route default path="/" component={Home} />
-								<Route path="/graphs" component={Graphs} />
-								<Route path="/map" component={Map} />
-								<Route path="/related-words" component={RelatedWords} />
-								<Route path="/team" component={Team} />
-							</Router>
-              <Footer />
+                <div class="flex flex-col flex-1 justify-between">
+                <Router>
+                  <Route default path="/" component={Home} />
+                  <Route path="/graphs" component={Graphs} />
+                  <Route path="/map" component={Map} />
+                  <Route path="/related-words" component={RelatedWords} />
+                  <Route path="/team" component={Team} />
+                </Router>
+                <Footer />
+              </div>
 						</div>
 				
           </ThemeProvider>

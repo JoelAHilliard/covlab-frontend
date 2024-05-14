@@ -113,7 +113,7 @@ export default function Home() {
     };
 
     return(
-        <div class="max-w-screen-xl mx-auto w-full py-4">
+        <div class="max-w-screen-2xl mx-auto w-full py-4">
             {mapData.length > 0 ? 
             <Card>
                 <CardHeader>

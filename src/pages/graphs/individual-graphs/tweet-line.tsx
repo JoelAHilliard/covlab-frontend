@@ -40,7 +40,7 @@ export default function Home() {
         },[activeFilter])
     if(activeGraphData){
         return(
-            <div class="max-w-screen-xl max-w-container mx-auto w-full">
+            <div class="max-w-screen-2xl mx-auto w-full">
                 <Card graph-id="cases/tweets" className="bg-accent">
                     <CardHeader className="flex flex-col justify-start">
                         <div class="flex items-start justify-center flex-col">

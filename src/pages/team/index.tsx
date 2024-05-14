@@ -10,21 +10,21 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                         <div class="gridgrid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                            <div class="shadow-lg rounded-lg py-4">
+                            <div class="shadow-lg rounded-lg py-4 px-2">
                                 <h2 class="text-xl font-bold mb-2">Supervisor</h2>
                                 <ul>
                                     <li>Dong Xu</li>
                                 </ul>
                             </div>
                         
-                            <div class=" shadow-lg rounded-lg py-4">
+                            <div class=" shadow-lg rounded-lg py-4 px-2">
                                 <h2 class="text-xl font-bold mb-2">Team Manager</h2>
                                 <ul>
                                     <li>Jiacheng Xie</li>
                                 </ul>
                             </div>
 
-                            <div class=" shadow-lg rounded-lg py-4">
+                            <div class=" shadow-lg rounded-lg py-4 px-2">
                                 <h2 class="text-xl font-bold mb-2">API Support</h2>
                                 <ul>
                                     <li>Li Su</li>
@@ -35,7 +35,7 @@ export default function Home() {
                                 </ul>
                             </div>
 
-                            <div class=" shadow-lg rounded-lg py-4">
+                            <div class=" shadow-lg rounded-lg py-4 px-2">
                                 <h2 class="text-xl font-bold mb-2">Developers</h2>
                                 <ul>
                                     <li>Ziyang Zhang</li>
@@ -43,7 +43,7 @@ export default function Home() {
                                 </ul>
                             </div>
 
-                            <div class=" shadow-lg rounded-lg py-4">
+                            <div class=" shadow-lg rounded-lg py-4 px-2">
                                 <h2 class="text-xl font-bold mb-2">Annotators</h2>
                                 <ul>
                                     <li>Kent Studer</li>

@@ -88,45 +88,45 @@ export default function Home(props:any) {
             categories: xVals.slice(minValue,maxValue),
             labels: {
                 style: {
-                    color: "white"
+                    color: "black"
                 }
             }
         },
         yAxis: [{
             title: {
-                style: { "color": "white" },
+                style: { "color": "black" },
                 text: width < 500 ? "" : graph_data[0].label
             },
             gridLineColor: 'transparent',
             labels: {
                 style: {
-                    color: "white"
+                    color: "black"
                 },
                 x: width < 500 ? 10 : -10,
             },
             min: 0,
             crosshair: {
                 width: 2,
-                color: "white",
+                color: "black",
             }
         },
         {
             gridLineWidth: 0,
             labels: {
                 style: {
-                    color: "white"
+                    color: "black"
                 },
                 x: width > 500 ? 10 : -10,
             },
             title: {
-                style: { "color": "white" },
+                style: { "color": "black" },
                 text: graph_data.length === 1 ? "" : (width < 500 ? "" : graph_data[1].label),
             },
             min: 0,
             opposite: true,
             crosshair: {
                 width: 2,
-                color: "white",
+                color: "black",
             }
         }],
         title: {
@@ -140,11 +140,11 @@ export default function Home(props:any) {
             verticalAlign: 'top',
             floating: true,
             itemStyle: {
-                color: "white"
+                color: "black"
             },
             crosshair: {
                 width: 2,
-                color: "white",
+                color: "black",
                 dashStyle: "Dash"
             }
         },

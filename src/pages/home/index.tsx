@@ -65,7 +65,7 @@ export default function Home() {
     },[])
     return(
         <div>
-            <div class="backgroundCss min-h-screen">
+            <div class="backgroundCss">
                 <div class="background-overlay min-h-screen">
                     <div class="titleContainer">
                         <p class="Covlab" style="padding-top: 15px;">Covlab</p>
@@ -97,8 +97,8 @@ export default function Home() {
                 <div name="previews" class="flex flex-col max-w-screen-xl max-w-container mx-auto gap-2 justify-start">
                     <Card name="graph1">
                         <CardHeader>
-                            <CardTitle className='pl-1'>Overview of Collected Tweetss</CardTitle>
-                            <CardDescription className="text-left">Based on manual-labeled tweets, we trained a Natural Language Processing (NLP) model to select the description of the self-reported covid positive tweets. The comparison with real daily cases has shown in the graph.</CardDescription>
+                            <CardTitle className='pl-1'>Overview of Collected Tweets</CardTitle>
+                            <CardDescription className="text-left text-lg">Based on manual-labeled tweets, we trained a Natural Language Processing (NLP) model to select the description of the self-reported covid positive tweets. The comparison with real daily cases has shown in the graph.</CardDescription>
                         </CardHeader>
                         <CardContent>
                                 <img class="max-h-[300px] mx-auto border border-red-600 rounded shadow-md" src={singleLineGraph}></img>
@@ -107,7 +107,7 @@ export default function Home() {
                     <Card name="graph1">
                         <CardHeader>
                             <CardTitle className='pl-1'>Tweet Breakdown</CardTitle>
-                            <CardDescription className="text-left">The pie chart shows the total collected tweets sum, model predicted positive percentage and the current labelling status percentage.</CardDescription>
+                            <CardDescription className="text-left text-lg">The pie chart shows the total collected tweets sum, model predicted positive percentage and the current labelling status percentage.</CardDescription>
                         </CardHeader>
                         <CardContent>
                                 <img class="max-h-[300px] mx-auto border border-red-600 rounded shadow-md" src={pieGraph}></img>
@@ -116,7 +116,7 @@ export default function Home() {
                     <Card name="graph1">
                         <CardHeader>
                             <CardTitle className='pl-1'>US Map</CardTitle>
-                            <CardDescription className="text-left">The US map shows the model predicted positive cases distribution of each state. Users can move cursor to each state to check the details. The darker color means the more people infected in that state.</CardDescription>
+                            <CardDescription className="text-left text-lg">The US map shows the model predicted positive cases distribution of each state. Users can move cursor to each state to check the details. The darker color means the more people infected in that state.</CardDescription>
                         </CardHeader>
                         <CardContent>
                                 <img class="max-h-[300px] mx-auto border border-red-600 rounded shadow-md" src={usMap}></img>
@@ -125,7 +125,7 @@ export default function Home() {
                     <Card name="graph1">
                         <CardHeader>
                             <CardTitle className='pl-1'>Symptom Pie Chart</CardTitle>
-                            <CardDescription className="text-left">Counting the proportions of symptoms, and discovering unrecognized new symptoms.</CardDescription>
+                            <CardDescription className="text-left text-lg">Counting the proportions of symptoms, and discovering unrecognized new symptoms.</CardDescription>
                         </CardHeader>
                         <CardContent>
                                 <img class="max-h-[300px] mx-auto border border-red-600 rounded shadow-md" src={symptomsimg}></img>
@@ -134,7 +134,7 @@ export default function Home() {
                     <Card name="graph1">
                         <CardHeader>
                             <CardTitle className='pl-1'>State Trend Table</CardTitle>
-                            <CardDescription className="text-left">Track the new cases by state over a 14-day period. Top 10 symtpoms mentioned by self-reported positive patients.</CardDescription>
+                            <CardDescription className="text-left text-lg">Track the new cases by state over a 14-day period. Top 10 symtpoms mentioned by self-reported positive patients.</CardDescription>
                         </CardHeader>
                         <CardContent>
                                 <img class="max-h-[300px] mx-auto border border-red-600 rounded shadow-md" src={stateTrendsImg}></img>
