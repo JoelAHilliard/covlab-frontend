@@ -72,37 +72,32 @@ export default function Home(){
                     </TableHeader>
                     <TableBody>
                         {tableData.slice(startIndex,endIndex).map((row:any)=>{
-                            console.log(row)
+                         
                             let options = {
                                 chart: {
                                   type: "line",
                                   height: 40,
                                   width: 100,
-                                  margin: [2, 0, 2, 0],
+                                  margin: [8, 0,8, 0],
                                   style: {
-                                    overflow: "visible"
-                                  }
+                                    overflow: "visible",
+                                    backgroundColor:"transparent"
+                                  },
+                                  backgroundColor:"transparent"
                                 },
                                 title: {
-                                  text: ""
+                                  text: row.cases_14_days_change.percentage ? Number(row.cases_14_days_change.percentage).toFixed(2) + "%" : "N/A",
+                                  style :{
+                                    fontSize:"10px",
+                                    top:0,
+                                  },
+                                  align:'center',
+                                  y:0,
+                                  verticalAlign:'top'
+
                                 },
                                 xAxis: {
-                                    categories: [
-                                      "2023-01-05",
-                                      "2023-01-07",
-                                      "2023-01-10",
-                                      "2023-01-11",
-                                      "2023-01-13",
-                                      "2023-01-14",
-                                      "2023-01-17",
-                                      "2023-01-18",
-                                      "2023-01-19",
-                                      "2023-01-21",
-                                      "2023-01-23",
-                                      "2023-01-24",
-                                      "2023-01-26",
-                                      "2023-02-04"
-                                    ],
+                                    categories: row.cases_14_days_change["14DayData"].data.map(entry => entry[0]),
                                     tickLength: 0,
                                     labels: {
                                       enabled: false
@@ -138,19 +133,15 @@ export default function Home(){
                                   }
                                 },
                                 series: [
-                                  {
-                                    data: row.cases_14_days_change["14DayData"].data.map((entry) => {
-                                        console.log(entry[1])
-                                        return entry[1]
-                                  }),
-                                    color: "#800000"
-                                  }
-                                ],
+                                    {
+                                      data: row.cases_14_days_change["14DayData"].data.map(entry => entry[1]),
+                                      color: "#800000"
+                                    }
+                                  ],
                                 credits: {
                                   enabled: false
                                 }
                             };
-                            
                             
                             return (
                                 <TableRow className={`${row.state == "US" && "text-red-700"}`}>
@@ -158,12 +149,10 @@ export default function Home(){
                                     <TableCell>{row.cases_7_sum}</TableCell>
                                     <TableCell>{!isNaN(Number(row.weekly_new_cases_per10m)) ? Number(row.weekly_new_cases_per10m).toFixed(2) : "N/A"}</TableCell>
                                     <TableCell className="">
-                                        {row.cases_14_days_change.percentage ? Number(row.cases_14_days_change.percentage).toFixed(2) + "%" : "N/A"}
                                         <HighchartsReact
-                                            highchart={Highcharts}
+                                            highcharts={Highcharts}
                                             options={options}
                                         />
-
                                     </TableCell>
                                     <TableCell className="">{!isNaN(Number(row.positivity)) ? Number(row.positivity).toFixed(2) : "N/A" }</TableCell>
                                 </TableRow>
